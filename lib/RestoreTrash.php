@@ -35,7 +35,7 @@ class RestoreTrash
         $curlOptions = [
             CURLOPT_FAILONERROR => 1,
             CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_URL => $this->uri . "/remote.php/dav/trash-bin/" . $this->username,
+            CURLOPT_URL => $this->uri . "/owncloud/remote.php/dav/trash-bin/" . $this->username,
             CURLOPT_USERPWD => "$this->username:$this->password",
             CURLOPT_SSL_VERIFYHOST => 0,
             CURLOPT_SSL_VERIFYPEER => 0,
@@ -107,7 +107,7 @@ class RestoreTrash
                 CURLOPT_CUSTOMREQUEST => "MOVE",
                 CURLOPT_HTTPHEADER => [
                     'Overwrite: F',
-                    'Destination: ' . $this->uri . '/remote.php/dav/files/' . $this->username . '/' . $trashbinRecord['trashbinOriginalLocation'],
+                    'Destination: ' . $this->uri . '/owncloud/remote.php/dav/files/' . $this->username . '/' . $trashbinRecord['trashbinOriginalLocation'],
                 ]];
 
             curl_setopt_array($ch, $curlOptions);
